@@ -389,9 +389,6 @@ scroll_down()
     Send %A_ThisHotkey%                                               
   Else
   {
-    If is_pre_x
-      mark_whole_buffer()
-    Else
       delete_backward_char()
   }
   Return
