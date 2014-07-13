@@ -57,7 +57,12 @@ is_target()
       Return 1
   Return 0                                                            
 }
-
+is_qtCreator()
+{
+  IfWinActive, ahk_class Qt5QWindowIcon
+   Return 1
+  Return 0
+}
 is_vs()
 {
   IfWinActive, ahk_class wndclass_desked_gsk ; vs2008
@@ -107,6 +112,8 @@ kill_line()
   {
     Send +{END}^x
    }
+   else if is_qtCreator()
+    Send +{END}^x
    Else
    {
      ClipBoard = ;
@@ -167,10 +174,10 @@ kill_region()
 {
   global is_pre_spc = 0
   If is_vs()
-  {
     Send ^x
-   }
-   Else ; if not select any words, cut the line
+  else if is_qtCreator()
+     Send +{DEL}
+  Else ; if not select any words, cut the line
    {
      ClipBoard = ;
      Send ^c
@@ -210,6 +217,8 @@ yank_pop()
 {
   If is_vs()
     Send ^+{Insert}
+  if is_qtCreator()
+    send ^+V
   Else
     Send ^v
   global is_pre_spc = 0
@@ -347,8 +356,21 @@ scroll_down()
   Else                                                                
     Send {PgDn}                                                       
   Return                                                              
-}                                                                     
-                                                                      
+}
+go_back()
+{
+  If is_vs()
+    Send ^{vkBDsc00C} ;; C--
+  else if is_qtCreator()
+     Send !{Left}
+}
+go_forward()
+{
+  If is_vs()
+    Send ^+{vkBDsc00C} ;;C-S--
+  else if is_qtCreator()
+     Send !{Right}
+}
                                                                       
 ^x::                                                                  
   If is_target()                                                      
@@ -558,7 +580,19 @@ scroll_down()
     Send %A_ThisHotkey%                                               
   Else                                                                
     backward_char()                                                   
-  Return     
+  Return
+^vk6Dsc04A:: ;; numpadsub
+  If is_target()                                                      
+    Send %A_ThisHotkey%
+  Else
+    go_back()
+  Return
+^vk6Bsc04E:: ;; numpadadd
+  If is_target()                                                      
+    Send %A_ThisHotkey%
+  Else
+    go_forward()
+  Return
 !b::                                                                  
   If is_target()                                                      
     Send %A_ThisHotkey%                                               
