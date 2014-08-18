@@ -159,8 +159,11 @@ newline_and_indent()
   Return                                                              
 }                                                                     
 isearch_forward()                                                     
-{                                                                     
-  Send ^f                                                             
+{
+  If is_vs()
+    Send ^d
+  Else                                                                     
+    Send ^f
   global is_pre_spc = 0                                               
   Return                                                              
 }                                                                     
