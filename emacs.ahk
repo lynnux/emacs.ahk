@@ -55,6 +55,8 @@ is_target()
       Return 1
    IfWinActive, ahk_exe doublecmd.exe
       Return 1
+   IfWinActive, ahk_class UnityContainerWndClass
+      Return 1
   Return 0                                                            
 }
 is_qtCreator()
