@@ -61,6 +61,8 @@ is_target()
       Return 1
    IfWinActive, ahk_exe DZHTool.exe
       Return 1
+   IfWinActive, ahk_exe dzh2.exe
+      Return 1
    IfWinActive, ahk_exe TdxW.exe
       Return 1
    IfWinActive, ahk_exe x32dbg.exe
