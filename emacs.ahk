@@ -75,6 +75,8 @@ is_qtCreator()
 {
   IfWinActive, ahk_class Qt5QWindowIcon
    Return 1
+  IfWinActive, ahk_class SWT_Window0 ; eclipse
+      Return 1          
   Return 0
 }
 is_vs()
