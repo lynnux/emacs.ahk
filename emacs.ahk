@@ -69,10 +69,10 @@ is_target()
       Return 1      
    IfWinActive, ahk_exe x64dbg.exe
       Return 1
-   IfWinActive, ahk_exe idaq.exe
-      Return 1
-   IfWinActive, ahk_exe idaq64.exe
-      Return 1 
+;   IfWinActive, ahk_exe idaq.exe
+;      Return 1
+;   IfWinActive, ahk_exe idaq64.exe
+;      Return 1 
   Return 0                                                            
 }
 is_qtCreator()
