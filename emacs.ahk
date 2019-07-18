@@ -17,10 +17,12 @@ is_pre_spc = 0
 ; Applications you want to disable emacs-like keybindings             
 ; (Please comment out applications you don't use)                     
 is_target()                                                           
-{                                                                     
-;  IfWinActive,ahk_class ConsoleWindowClass ; Cygwin! sorry but I can't live without far manager                 
-;    Return 1                                                          
-  IfWinActive,ahk_class MEADOW ; Meadow                               
+{
+    IfWinActive, ahk_exe Code.exe ; visual code´°¿ÚÒ²ÊÇ Chrome_WidgetWin_1
+    Return 0    
+    ;  IfWinActive,ahk_class ConsoleWindowClass ; Cygwin! sorry but I can't live without far manager                 
+    ;    Return 1                                                          
+    IfWinActive,ahk_class MEADOW ; Meadow                               
     Return 1                                                          
   IfWinActive,ahk_class cygwin/x X rl-xterm-XTerm-0                   
     Return 1                                                          
@@ -75,13 +77,15 @@ is_target()
       Return 1
 ;   IfWinActive, ahk_exe idaq64.exe
 ;      Return 1 
-  Return 0                                                            
+Return 0                                                            
 }
 is_qtCreator()
 {
   IfWinActive, ahk_class Qt5QWindowIcon
    Return 1
   IfWinActive, ahk_class SWT_Window0 ; eclipse
+      Return 1
+  IfWinActive, ahk_class Chrome_WidgetWin_1 ; visual code
       Return 1          
   Return 0
 }
@@ -420,17 +424,7 @@ go_forward()
   Else                                                                
     forward_word()                                                    
   Return                                                              
-;^c::                                                                  
-;  If is_target()                                                      
-;    Send %A_ThisHotkey%                                               
-;  Else                                                                
-;  {                                                                   
-;    If is_pre_x                                                       
-;      kill_emacs()                                                    
-;    Else                                                              
-;      Send %A_ThisHotkey%                                             
-;  }                                                                   
-;  Return
+
 ^h::
   If is_target()                                                      
     Send %A_ThisHotkey%                                               
@@ -547,32 +541,8 @@ go_forward()
 ;     redo()                                                            
 ;   Return 
                                                                         
-;$^{Space}::                                                          
-;^vk20sc039::                                                         
-^t::                                                                  
-  If is_target()                                                      
-    Send %A_ThisHotkey%                                               
-  Else                                                                
-  {                                                                   
-    If is_pre_spc                                                     
-      is_pre_spc = 0                                                  
-    Else                                                              
-      is_pre_spc = 1                                                  
-  }                                                                   
-  Return                                                              
-^@::                                                                  
-  If is_target()                                                      
-    Send %A_ThisHotkey%                                               
-  Else                                                                
-  {                                                                   
-    If is_pre_spc                                                     
-      is_pre_spc = 0                                                  
-    Else                                                              
-      is_pre_spc = 1                                                  
-  }                                                                   
-  Return                                                              
 ^a::                                                                  
-  If is_target()                                                      
+If is_target()                                                      
     Send %A_ThisHotkey%                                               
   Else                                                                
     move_beginning_of_line()                                          
