@@ -499,14 +499,14 @@ go_forward()
       isearch_forward()                                               
   }                                                                   
   Return                                                              
-^r::                                                                  
-  If is_target()                                                      
-    Send %A_ThisHotkey%                                               
-  Else                                                                
-    isearch_backward()                                                
-  Return                                                              
+;^r::                                                                  
+  ;  If is_target()                                                      
+  ;    Send %A_ThisHotkey%                                               
+  ;  Else                                                                
+  ;    isearch_backward()                                                
+  ;  Return                                                              
 ^w::                                                                  
-  If is_target()                                                      
+If is_target()                                                      
     Send %A_ThisHotkey%                                               
   Else                                                                
     kill_region()                                                     
