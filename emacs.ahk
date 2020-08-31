@@ -573,13 +573,13 @@ If is_target()
   Else                                                                
     backward_char()                                                   
   Return
-^vk6Dsc04A:: ;; numpadsub
+^vk6D:: ;; numpadsub
   If is_target()                                                      
     Send %A_ThisHotkey%
   Else
     go_back()
   Return
-^vk6Bsc04E:: ;; numpadadd
+^vk6B:: ;; numpadadd
   If is_target()                                                      
     Send %A_ThisHotkey%
   Else
