@@ -75,6 +75,8 @@ is_target()
       Return 1
    IfWinActive, ahk_exe Photoshop.exe
       Return 1
+   IfWinActive, ahk_exe emacs.exe
+      Return 1              
 ;   IfWinActive, ahk_exe idaq64.exe
 ;      Return 1 
 Return 0                                                            
