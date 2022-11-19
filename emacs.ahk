@@ -79,6 +79,10 @@ is_target()
       Return 1
    IfWinActive, ahk_exe AfterFX.exe
       Return 1
+   IfWinActive, ahk_exe Animate.exe
+      Return 1
+   IfWinActive, ahk_exe Illustrator.exe
+      Return 1              
 ;   IfWinActive, ahk_exe idaq64.exe
 ;      Return 1 
 Return 0                                                            
