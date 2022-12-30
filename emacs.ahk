@@ -75,6 +75,12 @@ is_target()
       Return 1
    IfWinActive, ahk_exe Photoshop.exe
       Return 1
+   IfWinActive, ahk_exe cheatengine-i386.exe
+      Return 1
+   IfWinActive, ahk_exe cheatengine-x86_64.exe
+      Return 1
+   IfWinActive, ahk_exe cheatengine-x86_64-SSE4-AVX2.exe
+      Return 1              
 ;   IfWinActive, ahk_exe idaq64.exe
 ;      Return 1 
 Return 0                                                            
