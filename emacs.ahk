@@ -90,6 +90,12 @@ is_target()
    IfWinActive, ahk_exe Illustrator.exe
       Return 1      
    IfWinActive, ahk_exe powershell.exe
+      Return 1
+   IfWinActive, ahk_exe blender.exe
+      Return 1
+   IfWinActive, ahk_exe CartoonAnimator.exe
+      Return 1
+   IfWinActive, ahk_exe Photoshop.exe
       Return 1   
 ;   IfWinActive, ahk_exe idaq64.exe
 ;      Return 1 
